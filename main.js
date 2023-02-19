@@ -1,17 +1,20 @@
 const filter = document.querySelector('.filter_bar')
+const filter_box = document.querySelector('.check-bar')
 const inputs = document.querySelector('.todo')
 const button = document.querySelector('.button')
 const taskContainer = document.querySelector('#task-container');
 
 let to_do = [];
-let input_value;
+let doneTasks = [];
 let taskButtonElement;
 let newTaskElement;
-
+let counter =0;
 
 function click() {
     button.addEventListener('click', () => {
-      adding_tasks();
+     
+        adding_tasks();
+
     });
   }
   click();
@@ -19,12 +22,21 @@ function click() {
   function adding_tasks() {
     
     input_value = inputs.value;
+
+    if (input_value === '') {
+      inputs.placeholder ='ENTER A VALID TASK'
+      inputs.style.color = "red"; 
+      inputs.style.cssText = `::placeholder { color: ${input.style.color} }`; 
+      return;
+    }
     
     to_do.push(input_value);
 
     //create a new div for the new task
     newTaskElement = document.createElement('div');
-   
+    //give it an id from the counter
+    newTaskElement.id = counter;
+    
    
     newTaskElement.classList.add('to_do_lists')
 
@@ -55,15 +67,64 @@ function click() {
       newTaskElement.appendChild(taskButtonElement);
       // Append the <div> element to the task container
       taskContainer.appendChild(newTaskElement);
-    
+      counter ++;
+      
+      const currentTaskElement = newTaskElement;
 
+      // Add an event listener to the delete button that removes the parent element (the div)
+      taskButtonElement.addEventListener('click', () => {
+        currentTaskElement.remove();
+      });
+      
 
- 
-    inputs.value = ''; 
+      //add event listner to the checkbox
+      checkboxElement.addEventListener('change', (event) => {
+       
+        if (event.target.checked) {
+          // add the div to the done tasks array and change css style
+          if (!doneTasks.includes(currentTaskElement.id))
+          {doneTasks.push(currentTaskElement.id)}
+          
+          taskTextElement.style.textDecoration = 'line-through';
+
+        } else {
+          taskTextElement.style.textDecoration = 'none';
+          //remove task from done tasks array 
+          const index = doneTasks.indexOf(currentTaskElement.id);
+          if (index !== -1) {
+            doneTasks.splice(index, 1);
+          }
+        }
+      });
+
+      //add event lister to the filter check box
+      filter_box.addEventListener('change', handleCheckboxChange)
+     
+
+      inputs.value = ''; 
+      console.log(doneTasks)
+      
    
   }
 
+  function handleCheckboxChange(event) {
+    if (event.target.checked) {
+      // Checkbox is checked, hide elements with the specified IDs
+      doneTasks.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.style.display = 'none';
+        }
+      });
+    } else {
+      // Checkbox is unchecked, show elements with the specified IDs
+      doneTasks.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.style.display = '';
+        }
+      });
+    }
+  }
 
-
-    
-  
+ 
