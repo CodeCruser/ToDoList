@@ -1,9 +1,10 @@
 const filter = document.querySelector('.filter_bar')
 const inputs = document.querySelector('.todo')
 const button = document.querySelector('.button')
+const taskContainer = document.querySelector('#task-container');
 
 let to_do = [];
-
+let input_value
 
 function click() {
     button.addEventListener('click', () => {
@@ -13,8 +14,15 @@ function click() {
   click();
 
   function adding_tasks() {
-    let input_value = inputs.value;
+    input_value = inputs.value;
     to_do.push(input_value);
-    alert(input_value);
-    console.log(to_do);
+
+
+    const newTaskElement = document.createElement('div');
+    newTaskElement.textContent = input_value;
+
+    taskContainer.appendChild(newTaskElement);
+   
   }
+
+ 
