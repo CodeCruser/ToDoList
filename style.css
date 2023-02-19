@@ -18,10 +18,12 @@ nav {
 }
 h1 {
     margin-left: -75px;
+    font-weight: 300px;
+    padding-bottom: 10px;
 }
 h2 {
     font-size: 15px;
-    margin-left: -70px;
+    margin-left: -75px;
 }
 .filter {
     background: #353239;
