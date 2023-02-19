@@ -16,12 +16,11 @@ nav {
     align-items: center;
     justify-content: center;
 }
-h1 {
-    margin-left: -75px;
-}
-h2 {
+h2{
     font-size: 15px;
-    margin-left: -70px;
+}
+.titel{
+    margin-left: -80px;
 }
 .filter {
     background: #353239;
