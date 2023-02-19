@@ -25,8 +25,7 @@ function click() {
 
     if (input_value === '') {
       inputs.placeholder ='ENTER A VALID TASK'
-      inputs.style.color = "red"; 
-      inputs.style.cssText = `::placeholder { color: ${input.style.color} }`; 
+      inputs.style.cssText = `::placeholder { color: red }`; 
       return;
     }
     
@@ -59,6 +58,7 @@ function click() {
      taskButtonElement = document.createElement('button');
      taskButtonElement.classList.add('delete-button');
      taskButtonElement.textContent = 'remove';
+     taskButtonElement.type = 'button'
 
       // Add the checkbox and task text to the <div> element
       rightContainer.appendChild(checkboxElement);
@@ -86,9 +86,11 @@ function click() {
           {doneTasks.push(currentTaskElement.id)}
           
           taskTextElement.style.textDecoration = 'line-through';
+          currentTaskElement.style.border ='2px solid green'
 
         } else {
           taskTextElement.style.textDecoration = 'none';
+          currentTaskElement.style.border ='2px solid #7044a0'
           //remove task from done tasks array 
           const index = doneTasks.indexOf(currentTaskElement.id);
           if (index !== -1) {
@@ -126,5 +128,21 @@ function click() {
       });
     }
   }
+
+
+  filter.addEventListener('input', (event)=>{
+    const filterQuery = event.target.value.toLowerCase()
+    const tasks = document.querySelectorAll('.to_do_lists');
+    tasks.forEach(task => {
+      const taskTest = task.querySelector('span').textContent.toLowerCase()
+      if(taskTest.includes(filterQuery)){
+        task.style.display = ''
+      }else{
+        task.style.display = 'none'
+      }
+    })
+  })
+
+ 
 
  
