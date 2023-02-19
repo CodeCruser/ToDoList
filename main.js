@@ -20,6 +20,7 @@ function click() {
 
     const newTaskElement = document.createElement('div');
     newTaskElement.textContent = input_value;
+    newTaskElement.classList.add('to_do_lists')
 
     taskContainer.appendChild(newTaskElement);
    

@@ -31,7 +31,7 @@ h2{
 
 }
 .filter {
-    background: #353239;
+    background: rgb(53, 50, 57);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,6 +66,26 @@ h2{
     border-bottom: 2px solid #603a88;
     margin: 10px ;
     padding: 5px;
+}
+#task-container {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    color:white;
+}
+.to_do_lists {
+    padding: 8px;
+    font-size: 20px;
+    background: rgba(53, 50, 57, 0.5 );
+    color: rgba(0, 0, 0, 0.5);
+    width:20%;
+    display: flex;
+    align-items: center;
+    border: 2px solid rgba(43, 35, 35,0.5);
+
 }
 .button:hover{
     opacity: 85%;
