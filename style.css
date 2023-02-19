@@ -77,14 +77,16 @@ h2{
     color:white;
 }
 .to_do_lists {
-    padding: 8px;
+    padding: 20px;
     font-size: 20px;
     background: rgba(53, 50, 57, 0.5 );
-    color: rgba(0, 0, 0, 0.5);
-    width:20%;
+    margin-top: 10px;
+    color: white;
+    width:40%;
     display: flex;
     align-items: center;
-    border: 2px solid rgba(43, 35, 35,0.5);
+    justify-content: space-between;
+    border: 2px solid #7044a0;
 
 }
 .button:hover{
@@ -93,4 +95,13 @@ h2{
 .hide {
     color: white;
     padding:10px;
+}
+.check-done{
+    margin-right: 10px;
+}
+.delete-button{
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
