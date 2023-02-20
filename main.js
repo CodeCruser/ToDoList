@@ -86,7 +86,7 @@ function click() {
           {doneTasks.push(currentTaskElement.id)}
           
           taskTextElement.style.textDecoration = 'line-through';
-          currentTaskElement.style.border ='2px solid green'
+          currentTaskElement.style.border ='2px dotted red'
 
         } else {
           taskTextElement.style.textDecoration = 'none';
@@ -129,6 +129,7 @@ function click() {
     }
   }
 
+  // explain this to me after ????
 
   filter.addEventListener('input', (event)=>{
     const filterQuery = event.target.value.toLowerCase()
@@ -142,7 +143,12 @@ function click() {
       }
     })
   })
-
+// The enter Key functionnality is working 
+//And Saber can u edit the nav bar to have a calender
  
-
- 
+inputs.addEventListener('keyup', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    adding_tasks();
+  }
+});
