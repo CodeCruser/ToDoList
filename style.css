@@ -18,7 +18,7 @@ nav {
 }
 
 .filter_bar::placeholder{
-    color: black;
+    color: rgb(151, 126, 126);
 }
 /* .filter_bar:hover::placeholder{
     color: rgb(138, 30, 30);
